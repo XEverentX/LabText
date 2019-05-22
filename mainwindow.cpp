@@ -73,3 +73,20 @@ void MainWindow::on_pushButton_2_clicked()
     ui->listWidget->setCurrentItem(t.t->item);
     ui->textEdit->setFocus();
 }
+
+void MainWindow::on_ch_button_clicked()
+{
+    QString text;
+    for (int i = 0; i < t.t->pr; i++) text += " ";
+    text += ui->textEdit->text();
+    ui->textEdit->clear();
+    ui->textEdit->setFocus();
+    t.change(text);
+}
+
+void MainWindow::on_del_button_clicked()
+{
+    t.del();
+    ui->listWidget->setCurrentItem(t.t->item);
+    ui->textEdit->setFocus();
+}

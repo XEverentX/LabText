@@ -31,6 +31,9 @@ struct tree {
     void down();
     void up_level ();
     void down_level();
+    void change(QString s);
+    void del_current (node* nt);
+    void del();
 };
 
 

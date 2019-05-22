@@ -89,3 +89,26 @@ void tree::up_level() {
 void tree::down_level() {
     if (t->right != nullptr) t = t->right;
 }
+
+void tree::change(QString s) {
+    t->item->setText(s);
+}
+void tree::del_current (node* nt) {
+    if (nt == nullptr) return;
+    del_current(nt->left);
+    del_current(nt->right);
+    delete nt->item;
+    nt->left = nt->right = nullptr;
+}
+
+void tree::del () {
+    //if (t == root) throw 1;
+    del_current(t->right);
+    delete t->item;
+    node* mem = t;
+    t = t->parent;
+    if (t->left == mem) t->left = nullptr;
+    if (t->right == mem) t->right = nullptr;
+}
+
+
