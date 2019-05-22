@@ -26,6 +26,9 @@ public:
         if (head < 1) throw 3;
         return a[head - 1];
     }
+    int get_head () {
+        return head;
+    }
 };
 
 #endif // STACK_H

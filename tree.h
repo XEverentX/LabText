@@ -3,31 +3,30 @@
 #define TREE_H
 #include <string>
 #include <QMainWindow>
+#include <QString>
 
 using namespace std;
 
-class node {
+struct node {
     int pr;
-    QString val;
-public:
+    QString s;
     node* left;
     node* right;
-    node* parent;
-    node(int n_pr);
-    node(const QString& s, int n_pr);
-    void set_val (const QString& s);
-    void set_pr (int n_pr);
-    void set_parent (node* t);
-    int get_pr ();
-    QString get_val();
-
+    node();
+    node(QString ns, int npr);
+    node(node* t);
+    ~node();
 };
 
-void del_node (node* t);
+struct tree {
+    node* root;
+    node* t;
+    tree();
+    void add (QString ns);
+    void insert (QString ns);
+};
 
-node* add (node* t, const QString& s, int n_pr);
 
-void insert (node* t, const QString& s, int n_pr);
 
 
 #endif // TREE_H
