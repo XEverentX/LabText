@@ -4,16 +4,18 @@
 #include <string>
 #include <QMainWindow>
 #include <QString>
+#include <QListWidgetItem>
 
 using namespace std;
 
 struct node {
     int pr;
-    QString s;
     node* left;
     node* right;
-    node();
-    node(QString ns, int npr);
+    node* parent;
+    QListWidgetItem* item;
+    node(QListWidgetItem* nitem);
+    node(QListWidgetItem* nitem, int npr);
     node(node* t);
     ~node();
 };
@@ -22,8 +24,13 @@ struct tree {
     node* root;
     node* t;
     tree();
-    void add (QString ns);
-    void insert (QString ns);
+    QListWidgetItem* get_last (node* nt);
+    QListWidgetItem* add (QListWidgetItem* nitem);
+    QListWidgetItem* insert (QListWidgetItem* nitem);
+    void up ();
+    void down();
+    void up_level ();
+    void down_level();
 };
 
 
